@@ -23,6 +23,8 @@ public class ObterProdutos {
 				.reduce(0.0, (t,p) -> t + p)
 				.doubleValue();
 		System.out.println("O valor total é R$ " + precoTotal);
+		
+		dao.fechar(); 
 				
 
 	}
