@@ -3,6 +3,7 @@ package modelo.umpramuitos;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,17 +18,17 @@ public class ItemPedido {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne
+	@ManyToOne ()
 	private Pedido pedido;
 	
-	@ManyToOne
+	@ManyToOne (fetch = FetchType.EAGER) // esse é o valor padrão
 	private Produto produto;
 	
 	@Column (nullable = false)
 	private int quantidade; // pode colocar int ou Integer
 	
 	@Column (nullable = false)
-	private Double preco; // tem que ser registrado porque sofre variação
+	private Double preco; // tem que ser registrado o preço ele porque sofre variação
 	
 	public ItemPedido() {
 		
